@@ -7,9 +7,7 @@ interface ArticleProp {
     id: number;
     title: string;
     description: string;
-    link: string;
     date: string
-    image: string
 }
 
 const timeline = [
@@ -27,11 +25,11 @@ const timeline = [
 
 export const About = () => {
     return (
-        <section className="relative overflow-hidden py-28">
-            <div className="absolute top-1/4 -left-20 w-100 h-100 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-1/4 -right-20 w-100 h-100 bg-accent/10 blur-[120px] rounded-full pointer-events-none" />
+        <section className="relative overflow-hidden py-10">
+            {/* <div className="absolute top-1/4 -left-20 w-100 h-100 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-1/4 -right-20 w-100 h-100 bg-accent/10 blur-[120px] rounded-full pointer-events-none" /> */}
 
-            <div className="container mx-auto px-4 lg:px-8 grid grid-cols-12 gap-12">
+            <div className="container mx-auto px-8 grid grid-cols-12 md:gap-12">
                 <div className="col-span-12 lg:col-span-6">
                     <div className="pb-8 space-y-2">
                         <p className="text-sm font-bold uppercase text-accent">Beyond the Code</p>
@@ -40,9 +38,9 @@ export const About = () => {
                     <p className="text-lg text-muted-foreground">
                         I&apos;m dedicated to helping others grow in their software development journeys. Whether it&apos;s through workshops, one-on-one mentoring, or creating educational content, I believe in the power of knowledge sharing to drive innovation and build stronger communities.
                     </p>
-                    <div className="flex gap-6 mt-8 flex-wrap font-space-grotesk">
+                    <div className="flex gap-1 md:gap-6 mt-8 flex-wrap font-space-grotesk">
                         {timeline.map((item) => (
-                            <div key={item.id} className="inline-block  py-4 px-6 rounded-lg mt-4 mr-4">
+                            <div key={item.id} className="inline-block py-4 px-6">
                                 <h3 className="text-3xl font-bold text-primary">{item.stats}</h3>
                                 <p className="text-muted-foreground">{item.title}</p>
                             </div>

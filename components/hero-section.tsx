@@ -5,7 +5,7 @@ import { personalData } from "@/app/utils/portfolio-data/personal-data"
 
 export const HeroSection = () => {
     return (
-        <section className="container mx-auto min-h-[50vh] lg:min-h-screen flex flex-col justify-center item-center relative overflow-hidden px-8">
+        <section className="container mx-auto min-h-[50vh] lg:min-h-screen flex flex-col justify-center item-center relative overflow-hidden px-8 bg-">
             <div className="hero-bg"/>
                 <div className="relative z-10 max-w-4xl lg:px-8">
                     <h1 className="text-5xl md:text-6xl leading-[1.1] font-space-grotesk font-bold tracking-tight mb-6"

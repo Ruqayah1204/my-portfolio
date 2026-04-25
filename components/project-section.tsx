@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 import { CodeXml, Globe } from "lucide-react";
 import { projectData } from "@/app/utils/portfolio-data/projects";
+import Link from "next/link";
 
 interface ProjectProp {
     id: number;
@@ -16,7 +17,7 @@ interface ProjectProp {
 
 export const FeaturedProject = () => {
     return (
-        <section className="container mx-auto relative overflow-hidden py-20 px-8">
+        <section className="container mx-auto relative overflow-hidden py-10 px-8">
             <div className="pb-8">
                 <h2 className="text-3xl font-bold">Featured Projects</h2>
             </div>
@@ -45,12 +46,12 @@ const ProjectCard = (project : ProjectProp) => {
                 <div className="flex items-center justify-between">
                     <CardTitle>{project.name}</CardTitle>
                     <div className="flex gap-4 items-center">
-                        <a href={project.code} target="_blank" rel="noopener noreferrer" className="bg-primary/10 text-primary p-3 rounded-full inline-flex items-center border hover:border-primary transition-colors duration-500 group">
+                        <Link href={project.code} target="_blank" rel="noopener noreferrer" className="bg-primary/10 text-primary p-3 rounded-full inline-flex items-center border hover:border-primary transition-colors duration-500 group">
                             <CodeXml className="inline-block group-hover:skew-x-18 transition-all duration-500" size={20}  />
-                        </a>
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="bg-primary text-background p-3 rounded-full inline-flex items-center">
+                        </Link>
+                        <Link href={project.demo} target="_blank" rel="noopener noreferrer" className="bg-primary text-background p-3 rounded-full inline-flex items-center">
                             <Globe className="inline-block" size={20}  />
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <CardDescription>{project.description}</CardDescription>
