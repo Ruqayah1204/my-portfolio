@@ -42,7 +42,7 @@ export const About = () => {
                         {timeline.map((item) => (
                             <div key={item.id} className="inline-block py-4 px-6">
                                 <h3 className="text-3xl font-bold text-primary">{item.stats}</h3>
-                                <p className="text-muted-foreground">{item.title}</p>
+                                <p className="text-muted-foreground text-sm lg:text-base">{item.title}</p>
                             </div>
                         ))}
 

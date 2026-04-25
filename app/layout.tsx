@@ -30,12 +30,12 @@ export default function RootLayout({
     <html lang="en" className={`${nunito.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body className={cn("font-nunito antialiased")}>
         <ThemeProvider>
-          {/* <Loader> */}
+          <Loader>
             <Header/>
             <main>
               {children}
             </main>
-          {/* </Loader> */}
+          </Loader>
         </ThemeProvider>
 
       </body>
