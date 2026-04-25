@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Nunito, Space_Grotesk, Geist } from "next/font/google";
+import { Nunito, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import { Loader } from "@/components/loader";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Header } from "@/components/header";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -26,11 +27,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body
-        className={`${nunito.variable} ${spaceGrotesk.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className={`${nunito.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+      <body className={cn("font-nunito antialiased")}>
+        <ThemeProvider>
+          <Loader>
+            <Header/>
+            <main>
+              {children}
+            </main>
+          </Loader>
+        </ThemeProvider>
+
       </body>
     </html>
   );
