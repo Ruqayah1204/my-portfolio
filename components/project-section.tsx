@@ -17,7 +17,7 @@ interface ProjectProp {
 
 export const FeaturedProject = () => {
     return (
-        <section className="container mx-auto relative overflow-hidden py-10 px-8">
+        <section id="projects" className="container mx-auto relative overflow-hidden py-10 md:py-20 px-8">
             <div className="pb-8">
                 <h2 className="text-3xl font-bold">Featured Projects</h2>
             </div>

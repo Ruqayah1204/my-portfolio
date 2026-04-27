@@ -57,7 +57,7 @@ export const ContactForm = () => {
             publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
         }
 
-        const autoResponseTemplateID = process.env.NEXT_PUBLIC_EMAILJS_REPLY_TEMPLATE_ID ?? ""
+        // const autoResponseTemplateID = process.env.NEXT_PUBLIC_EMAILJS_REPLY_TEMPLATE_ID ?? ""
 
         const templateParams ={
             name: formData.name,
@@ -71,7 +71,7 @@ export const ContactForm = () => {
             const res = await emailjs.send(serviceID, templateID, templateParams, options)
 
             // auto-response for testing
-            await emailjs.send(serviceID, autoResponseTemplateID, templateParams, options)
+            // await emailjs.send(serviceID, autoResponseTemplateID, templateParams, options)
 
             console.log("Email sent successfully:", res)
 

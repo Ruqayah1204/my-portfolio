@@ -45,7 +45,7 @@ const contactItems = (data: typeof personalData): ContactCardProps[] => [
 export const Contact = () => {
 
   return (
-    <section id="contact" className="relative py-20 md:py-28">
+    <section id="contact" className="relative py-20">
 
       {/* background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

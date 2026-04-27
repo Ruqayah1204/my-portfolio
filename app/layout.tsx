@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Loader } from "@/components/loader";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -35,6 +36,7 @@ export default function RootLayout({
             <main>
               {children}
             </main>
+            <Footer/>
           </Loader>
         </ThemeProvider>
 
