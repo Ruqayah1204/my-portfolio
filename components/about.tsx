@@ -59,7 +59,7 @@ export const About = () => {
     )
 }
 
-const ArticleCard = (article: ArticleProp) => {
+const ArticleCard = ({id, date, title, description}: ArticleProp) => {
     return (
         <Card
             className="p-6 gap-6 justify-between relative overflow-hidden ring-0"
@@ -71,19 +71,19 @@ const ArticleCard = (article: ArticleProp) => {
             <div className="flex justify-between items-center ">
                 <span className={cn(
                     "inline-block text-xs bg-primary/10 py-1 px-3 rounded-full",
-                    article.id === 1? "text-accent" : "text-muted-foreground"
+                    id === 1? "text-accent" : "text-muted-foreground"
                 )}>
-                    {article.id === 1 ? "Highlight": "Article"}
+                    {id === 1 ? "Highlight": "Article"}
                 </span>
-                 <span className="text-muted-foreground text-xs">{article.date}</span> {/* Dec 2024  */}
+                 <span className="text-muted-foreground text-xs">{date}</span> {/* Dec 2024  */}
             </div>
 
             <CardContent className="space-y-3 p-0">
                 <CardTitle>
-                    {article.title}
+                    {title}
                 </CardTitle>
                 <CardDescription>
-                    {article.description}
+                    {description}
                 </CardDescription>
                 
             </CardContent>
