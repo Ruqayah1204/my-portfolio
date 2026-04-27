@@ -7,13 +7,13 @@ export const HeroSection = () => {
     return (
         <section className="container mx-auto min-h-[50vh] lg:min-h-screen flex flex-col justify-center item-center relative overflow-hidden px-8 bg-">
             <div className="hero-bg"/>
-                <div className="relative z-10 max-w-4xl lg:px-8">
-                    <h1 className="text-5xl md:text-6xl leading-[1.1] font-space-grotesk font-bold tracking-tight mb-6"
-                        style={{
-                            background: "linear-gradient(to right, #fff, #94a3b8)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                        }}
+                <div className="relative z-10 max-w-4xl lg:px-8 py-4">
+                    <h1 className="text-5xl md:text-6xl leading-[1.1] font-space-grotesk font-bold tracking-tight mb-6 bg-linear-to-r from-foreground to-[#94a3b8] bg-clip-text text-transparent"
+                        // style={{
+                        //     background: "linear-gradient(to right, #fff, #94a3b8)",
+                        //     WebkitBackgroundClip: "text",
+                        //     WebkitTextFillColor: "transparent",
+                        // }}
                     >
                         Salaudeen Rukayat T. —
                         Crafting Pixel-Perfect Digital Experiences.
