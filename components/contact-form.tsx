@@ -9,6 +9,7 @@ import { Textarea } from "./ui/textarea"
 import { Label } from "./ui/label"
 import { cn } from "@/lib/utils"
 import { Button } from "./ui/button"
+import SectionReveal from "./section-reveal"
 
 
 export const ContactForm = () => {
@@ -111,106 +112,108 @@ export const ContactForm = () => {
                     </p>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-
-                    {/* Name + Email row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div className="flex flex-col gap-1.5">
-                            <Label className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
-                                Name
-                            </Label>
-                            <div className="relative">
-                                <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                                <Input
-                                    // required
-                                    type="text"
-                                    name="name"
-                                    placeholder="Your name"
-                                    value={formData.name}
-                                    onChange={changeHandler}
-                                    className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300"
-                                    />
+                <SectionReveal direction="right">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+                        {/* Name + Email row */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div className="flex flex-col gap-1.5">
+                                <Label className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
+                                    Name
+                                </Label>
+                                <div className="relative">
+                                    <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                                    <Input
+                                        // required
+                                        type="text"
+                                        name="name"
+                                        placeholder="Your name"
+                                        value={formData.name}
+                                        onChange={changeHandler}
+                                        className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300"
+                                        />
+                                </div>
+                                {error.name && <p className="text-red-500 text-xs">{error.name}</p>}
                             </div>
-                            {error.name && <p className="text-red-500 text-xs">{error.name}</p>}
+
+                            <div className="flex flex-col gap-1.5">
+                                <Label className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
+                                    Email
+                                </Label>
+                                <div className="relative">
+                                    <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                                    <Input
+                                        type="email"
+                                        name="email"
+                                        placeholder="your@email.com"
+                                        value={formData.email}
+                                        onChange={changeHandler}
+                                        className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300"
+                                    />
+                                </div>
+                                {error.email && <p className="text-red-500 text-xs">{error.email}</p>}
+                            </div>
                         </div>
 
+                        {/* Subject */}
                         <div className="flex flex-col gap-1.5">
                             <Label className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
-                                Email
+                                Subject
+                            </Label>
+                            <Input
+                                type="text"
+                                name="subject"
+                                placeholder="What's this about?"
+                                value={formData.subject}
+                                onChange={changeHandler}
+                                className="w-full px-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300"
+                            />
+                            {error.subject && <p className="text-red-500 text-xs">{error.subject}</p>}
+                        </div>
+
+                        {/* Message */}
+                        <div className="flex flex-col gap-1.5">
+                            <Label className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
+                                Message
                             </Label>
                             <div className="relative">
-                                <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                                <Input
-                                    type="email"
-                                    name="email"
-                                    placeholder="your@email.com"
-                                    value={formData.email}
-                                    onChange={changeHandler}
-                                    className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300"
+                                <MessageSquare size={14} className="absolute left-3 top-3 text-muted-foreground" />
+                                <Textarea
+                                name="message"
+                                rows={5}
+                                placeholder="Tell me about your project or idea..."
+                                value={formData.message}
+                                onChange={changeHandler}
+                                className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300 resize-none"
                                 />
                             </div>
-                            {error.email && <p className="text-red-500 text-xs">{error.email}</p>}
+                            {error.message && <p className="text-red-500 text-xs">{error.message}</p>}
                         </div>
-                    </div>
 
-                    {/* Subject */}
-                    <div className="flex flex-col gap-1.5">
-                        <Label className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
-                            Subject
-                        </Label>
-                        <Input
-                            type="text"
-                            name="subject"
-                            placeholder="What's this about?"
-                            value={formData.subject}
-                            onChange={changeHandler}
-                            className="w-full px-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300"
-                        />
-                        {error.subject && <p className="text-red-500 text-xs">{error.subject}</p>}
-                    </div>
+                        {submitError && (
+                            <p className="text-red-500 text-sm text-center">
+                                Something went wrong. Please try again or email me directly.
+                            </p>
+                        )}
 
-                    {/* Message */}
-                    <div className="flex flex-col gap-1.5">
-                        <Label className="text-xs uppercase tracking-widest text-muted-foreground font-bold">
-                            Message
-                        </Label>
-                        <div className="relative">
-                            <MessageSquare size={14} className="absolute left-3 top-3 text-muted-foreground" />
-                            <Textarea
-                            name="message"
-                            rows={5}
-                            placeholder="Tell me about your project or idea..."
-                            value={formData.message}
-                            onChange={changeHandler}
-                            className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg bg-foreground/3 border border-foreground/10 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all duration-300 resize-none"
-                            />
-                        </div>
-                        {error.message && <p className="text-red-500 text-xs">{error.message}</p>}
-                    </div>
+                        {/* Submit */}
+                        <Button
+                        type="submit"
+                        disabled={isSending}
+                        className={cn(
+                            "group relative overflow-hidden rounded-lg px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 flex items-center justify-center gap-2",
+                            "border border-primary text-primary-foreground",
+                            isSending ? "opacity-70 cursor-not-allowed" : "hover:scale-[1.02] active:scale-[0.98]"
+                        )}
+                        >
+                        <span className="absolute inset-0 bg-primary translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(.77,0,.18,1)]" />
+                        <span className="relative z-10 flex items-center gap-2">
+                            {isSending ? "Sending..." : "Send Message"}
+                            <Send size={14} className={cn("transition-transform duration-300", isSending ? "animate-pulse" : "group-hover:translate-x-1")} />
+                        </span>
+                        </Button>
+                    </form>
 
-                    {submitError && (
-                        <p className="text-red-500 text-sm text-center">
-                            Something went wrong. Please try again or email me directly.
-                        </p>
-                    )}
-
-                    {/* Submit */}
-                    <Button
-                    type="submit"
-                    disabled={isSending}
-                    className={cn(
-                        "group relative overflow-hidden rounded-lg px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 flex items-center justify-center gap-2",
-                        "border border-primary text-primary-foreground",
-                        isSending ? "opacity-70 cursor-not-allowed" : "hover:scale-[1.02] active:scale-[0.98]"
-                    )}
-                    >
-                    <span className="absolute inset-0 bg-primary translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(.77,0,.18,1)]" />
-                    <span className="relative z-10 flex items-center gap-2">
-                        {isSending ? "Sending..." : "Send Message"}
-                        <Send size={14} className={cn("transition-transform duration-300", isSending ? "animate-pulse" : "group-hover:translate-x-1")} />
-                    </span>
-                    </Button>
-                </form>
+                </SectionReveal>
             )}
         </Card>
     )

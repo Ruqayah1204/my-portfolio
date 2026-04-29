@@ -17,21 +17,24 @@ interface ProjectProp {
 
 export const FeaturedProject = () => {
     return (
-        <section id="projects" className="container mx-auto relative overflow-hidden py-10 md:py-20 px-8">
+        <section id="projects" className="container mx-auto relative overflow-hidden py-10 md:py-20 px-4 md:px-6 lg:px-8">
             <div className="pb-8">
                 <h2 className="text-3xl font-bold">Featured Projects</h2>
             </div>
-            <div className="grid grid-cols-12 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {projectData.slice(0,2).map((project) => (
                     <ProjectCard key={project.id} {...project} />
                 ))}
             </div>
+            <Link href="/project" className="mt-8 inline-block text-sm text-primary hover:underline">
+                View All Projects
+            </Link>
         </section>
     )
 }
 
 const ProjectCard = (project : ProjectProp) => (
-    <Card className="p-0 col-span-12 md:col-span-6 border-none rounded-sm gap-0 ">
+    <Card className="p-0  border-none rounded-sm gap-0 ">
         <div className="relative overflow-hidden aspect-video group">
             <Image 
                 src={project.images} 

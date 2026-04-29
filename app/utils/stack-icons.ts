@@ -48,10 +48,11 @@ export const getColor = (skill: string): string => {
 export const getSpan = (title: string) => {
   switch (title) {
     case "Modern Frontend":
-      return "col-span-12 md:col-span-6";
+      return "md:col-span-6";
     case "Version Control & CI/CD":
-      return "col-span-12 md:col-span-6";
+      return "md:col-span-6";
     default:
-      return "col-span-12 sm:col-span-6 md:col-span-3";
+      return "sm:col-span-6 md:col-span-3";
   }
 };
+
