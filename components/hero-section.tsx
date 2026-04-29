@@ -56,7 +56,7 @@ export const HeroSection = () => {
                         I build accessible, performance-driven web interfaces and delightful user experiences with modern technologies.
                     </p>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="hero-cta flex flex-wrap gap-4">
                         <Link
                             href={personalData.resume}
                             target="_blank"
@@ -76,7 +76,8 @@ export const HeroSection = () => {
                         {/* <div className="hero-cta"> */}
                             <Link
                                 href="#contact"
-                                className="gradient-border hero-cta text-foreground px-5 py-2 inline-flex items-center gap-2 transition-all duration-300 hover:text-primary hover:shadow-[0_0_18px_rgba(129,140,248,0.25)] text-sm tracking-wide"
+                                className="gradient-border  text-foreground px-5 py-2 inline-flex items-center gap-2 transition-all duration-300 hover:text-primary hover:shadow-[0_0_18px_rgba(129,140,248,0.25)] text-sm tracking-wide"
+                                
                             >
                                 Contact
                             </Link>
